@@ -14,12 +14,16 @@ Purpose: LeetCode practice with optimized solutions
 # --------------------------------------------------
 
 def two_sum(nums, target):
-    hashmap = {}
-    for i, num in enumerate(nums):
-        diff = target - num
-        if diff in hashmap:
-            return [hashmap[diff], i]
-        hashmap[num] = i
+    
+    seen = {}  
+
+    for i in range(len(nums)):
+        remaining = target - nums[i]
+
+        if remaining in seen:
+            return [seen[remaining], i]
+
+        seen[nums[i]] = i
 
 # --------------------------------------------------
 # Problem 2: Best Time to Buy and Sell Stock
